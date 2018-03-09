@@ -64,3 +64,18 @@ recipes = Recipe.create(
     }
   ]
 )
+
+comments = Comment.create(
+  [
+    {
+      content: "I loved this dish!",
+      recipe_id: 1,
+    },
+
+    {
+      content: "This cake is to die for!!",
+      recipe_id: 2,
+      }
+
+  ]
+)

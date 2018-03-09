@@ -6,9 +6,9 @@ class CreateRecipes < ActiveRecord::Migration[5.1]
       t.string :serves
       t.text :ingredients
       t.text :directions
-      t.time :prep_time
-      t.time :cook_time
-      t.time :total_time
+      t.string :prep_time
+      t.string :cook_time
+      t.string :total_time
       
       t.timestamps
     end

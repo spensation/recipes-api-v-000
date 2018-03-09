@@ -11,8 +11,15 @@ class Api::V1::RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    render json: @recipe.to_json
+    render json: @recipe
   end
+
+  # def update
+  #   @recipe = Recipe.find(params[:id])
+  #   @recipe.increment!(:like)
+  #   @recipe.save
+  #   render json: @recipe
+  # end
 
   def destroy
     @recipe = Recipe.find(params[:id])
@@ -25,7 +32,7 @@ class Api::V1::RecipesController < ApplicationController
 
   private
     def recipe_params
-      params.require(:recipe).permit(:title, :category, :serves, :prep_time, :cook_time, :total_time, :ingredients, :directions)
+      params.require(:recipe).permit(:id, :title, :category, :serves, :prep_time, :cook_time, :total_time, :ingredients, :directions)
     end
 
 end

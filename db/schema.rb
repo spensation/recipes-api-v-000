@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227135219) do
+ActiveRecord::Schema.define(version: 20180308143855) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
     t.integer "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_comments_on_recipe_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_likes_on_recipe_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -25,9 +33,9 @@ ActiveRecord::Schema.define(version: 20180227135219) do
     t.string "serves"
     t.text "ingredients"
     t.text "directions"
-    t.time "prep_time"
-    t.time "cook_time"
-    t.time "total_time"
+    t.string "prep_time"
+    t.string "cook_time"
+    t.string "total_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
